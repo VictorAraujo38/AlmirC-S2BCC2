@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AlmirTrabs2S.props" />
+</Project>

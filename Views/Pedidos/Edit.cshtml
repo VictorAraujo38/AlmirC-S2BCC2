@@ -1,0 +1,47 @@
+﻿@model AlmirTrabs.Models.Pedido
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Editação de Registros</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="id" />
+            <div class="form-group">
+                <label asp-for="racoes" class="control-label"></label>
+                <select asp-for="racoes" class="form-control" asp-items="ViewBag.racoes"></select>
+                <span asp-validation-for="racoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="pets" class="control-label"></label>
+                <select asp-for="pets" class="form-control" asp-items="ViewBag.pets"></select>
+                <span asp-validation-for="pets" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantidade" class="control-label"></label>
+                <input asp-for="quantidade" class="form-control" />
+                <span asp-validation-for="quantidade" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="valor" class="control-label"></label>
+                <input asp-for="valor" class="form-control" />
+                <span asp-validation-for="valor" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-primary" />
+                <a role="button" class="btn btn-secondary" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

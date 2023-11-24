@@ -1,0 +1,38 @@
+﻿@model AlmirTrabs.Models.Pedido
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Registro de Pedidos</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="racoesID" class="control-label"></label>
+                <select asp-for="racoesID" class ="form-control" asp-items="ViewBag.racoesID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="petsID" class="control-label"></label>
+                <select asp-for="petsID" class ="form-control" asp-items="ViewBag.petsID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="quantidade" class="control-label"></label>
+                <input asp-for="quantidade" class="form-control" />
+                <span asp-validation-for="quantidade" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Criar" class="btn btn-primary" />
+                <a role="button" class="btn btn-secondary" asp-action="Index">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
